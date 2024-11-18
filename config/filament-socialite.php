@@ -19,5 +19,14 @@ return [
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
     ],
 
-    'show_'
+    /*
+    |--------------------------------------------------------------------------
+    | Hide
+    |--------------------------------------------------------------------------
+    |
+    | This option defines the filament admin panels which should not show socialite login in login page.
+    |
+    */
+
+    'hide_on_panel' => array_map('trim', array_filter(explode(',', env('FILAMENT_SOCIALITE_HIDE_ON_PANEL')))),
 ];

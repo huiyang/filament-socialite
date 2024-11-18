@@ -38,9 +38,7 @@ class FilamentSocialiteServiceProvider extends PackageServiceProvider
             static function (): ?string {
                 $panel = Filament::getCurrentPanel();
 
-                dd($panel);
-
-                if (! $panel?->hasPlugin('filament-socialite')) {
+                if (! $panel?->hasPlugin('filament-socialite') || in_array($panel->getId(), config('filament-socialite.hide_on_panel', []))) {
                     return null;
                 }
 
